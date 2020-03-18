@@ -53,6 +53,7 @@ init <- function(project_path)
     #dev file
 
     # Initialise RStudio Project
+    rstudioapi::initializeProject()
     message(crayon::green(cli::symbol$tick, 'Created RStudio project'))
 
     # Grab the project name
