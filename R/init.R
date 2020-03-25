@@ -11,7 +11,6 @@
 
 init <- function(project_path)
 {
-
     if (dir.exists(project_path)) {
         message(crayon::green(cli::symbol$tick, project_path, 'already exists'))
     }
@@ -121,7 +120,11 @@ init <- function(project_path)
     file.create('README.md')
     writeLines(paste0('#', project_name), 'README.md')
 
+    # Activate r-env
     renv::activate()
+
+    # Install pacman
+    install.packages('pacman')
 
     # Finish
 }
