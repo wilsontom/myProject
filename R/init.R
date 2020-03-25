@@ -123,6 +123,8 @@ init <- function(project_path)
     # Activate r-env
     renv::activate()
 
+    # Add local renv library to gitignore
+    usethis::use_git_ignore('renv/library')
     # Install pacman
     install.packages('pacman')
 
