@@ -118,13 +118,11 @@ init <- function(project_path)
 
     # Create README
     file.create('README.md')
-    writeLines(paste0('#', project_name), 'README.md')
+    writeLines(paste0('# ', project_name), 'README.md')
 
     # Activate r-env
     renv::activate()
 
-    # Add local renv library to gitignore
-    usethis::use_git_ignore('renv/library')
     # Install pacman
     install.packages('pacman')
 
