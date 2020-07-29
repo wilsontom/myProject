@@ -124,7 +124,7 @@ init <- function(project_path)
     renv::activate()
 
     # Install pacman
-    install.packages('pacman')
+    renv::install(c('pacman', 'drake'))
 
     # Finish
 }
