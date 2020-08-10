@@ -22,7 +22,13 @@ add_report <- function(project_path)
     message(crayon::green(cli::symbol$tick, 'Rmd report template added'),
             '\n')
 
-    usethis::use_git_ignore('report/report.html')
+    existing_gitignore <-
+        readLines(paste0(project_path, '/.gitignore'))
+
+    new_gitignore <- c(existing_gitignore, 'report/report.html')
+
+    writeLines(new_gitignore,
+               paste0(project_path, '/.gitignore'))
 
     return(invisible(NULL))
 }
