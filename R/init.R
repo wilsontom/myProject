@@ -126,5 +126,8 @@ init <- function(project_path)
     # Install pacman
     renv::install(c('pacman', 'drake'))
 
+    # Open project
+    rstudioapi::openProject(project_path)
+
     # Finish
 }
