@@ -1,8 +1,8 @@
 ---
 title: 
 output: html_document
-author:
-date:
+author: "Tom Wilson <tpw2@aber.ac.uk>"
+date: "`r Sys.Date()`"
 ---
 
 
