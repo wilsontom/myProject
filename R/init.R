@@ -106,12 +106,15 @@ init <- function(project_path)
     # Write to files
     renv_string <- paste0('renv::restore()')
 
-    pacman_string <-
-        paste0('pacman::p_load(\'drake\',\'tidyverse\',\'piggyback\')')
+    easypak <- paste0('library(easypackages)')
 
-    package_string <- paste0(renv_string, '\n', pacman_string)
+    pkg_string <- paste0('PACKAGES <- c(\'drake\', \'tidyverse\')')
 
-    writeLines(package_string, 'R/packages.R')
+    pkg_load <- paste0('libraries(PACKAGES)')
+
+    packages_string <- paste0(renv_string, '\n', easypak, '\n', pkg_string, '\n', pkg_load)
+
+    writeLines(packages_string, 'R/packages.R')
 
     # Start drake plan
     writeLines('plan <- drake_plan()', 'R/plan.R')
@@ -124,7 +127,13 @@ init <- function(project_path)
     renv::activate()
 
     # Install pacman
-    renv::install(c('pacman', 'drake'))
+    renv::install(c('drake', 'tidyverse', 'easypackages'))
+
+    # Copy install template to project
+    file.copy(
+        from = system.file('install.R', package = 'myProject'),
+        to = paste0(project_path, '/R')
+    )
 
     # Open project
     rstudioapi::openProject(project_path)
