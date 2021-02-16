@@ -1,0 +1,13 @@
+---
+title:
+author: "Tom Wilson <tpw2@aber.ac.uk>"
+date: "`r Sys.Date()`"
+output:
+    pdf_document:
+        latex_engine: xelatex
+---
+
+```r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = "center",echo = FALSE, eval = TRUE)
+```
+
